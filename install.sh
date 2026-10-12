@@ -108,7 +108,7 @@ say "installed to $EXT_DIR"
 for old in "${LEGACY_UUIDS[@]}"; do
     if [ -d "$EXT_ROOT/$old" ]; then
         hdr "Removing legacy extension $old"
-        rm -rf "$EXT_ROOT/$old"
+        rm -rf "${EXT_ROOT:?}/$old"
         gfa_remove_from_enabled "$old"
     fi
 done

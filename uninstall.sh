@@ -31,13 +31,13 @@ EXT_ROOT="$HOME/.local/share/gnome-shell/extensions"
 
 hdr "Disabling and removing extension"
 gfa_remove_from_enabled "$UUID"
-rm -rf "$EXT_ROOT/$UUID"
+rm -rf "${EXT_ROOT:?}/$UUID"
 say "removed $EXT_ROOT/$UUID"
 
 for old in "${LEGACY_UUIDS[@]}"; do
     if [ -d "$EXT_ROOT/$old" ]; then
         gfa_remove_from_enabled "$old"
-        rm -rf "$EXT_ROOT/$old"
+        rm -rf "${EXT_ROOT:?}/$old"
         say "removed $EXT_ROOT/$old"
     fi
 done

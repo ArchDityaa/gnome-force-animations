@@ -1,0 +1,43 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  lint:
+    name: Lint shell scripts & JSON metadata
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Bash syntax check (bash -n)
+        run: |
+          set -e
+          for f in install.sh uninstall.sh diagnose.sh; do
+            bash -n "$f"
+            echo "bash -n OK: $f"
+          done
+
+      - name: ShellCheck
+        run: shellcheck install.sh uninstall.sh diagnose.sh
+
+      - name: Validate JSON metadata
+        run: |
+          set -e
+          shopt -s nullglob
+          files=(extension/*/metadata.json)
+          if [ ${#files[@]} -eq 0 ]; then
+            echo "::error::no extension/*/metadata.json found"
+            exit 1
+          fi
+          for f in "${files[@]}"; do
+            python3 -m json.tool "$f" > /dev/null
+            echo "valid JSON: $f"
+          done

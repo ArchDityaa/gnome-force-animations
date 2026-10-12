@@ -14,6 +14,7 @@ kv()   { printf '   %-26s %s\n' "$1" "$2"; }
 
 line "System"
 if [ -r /etc/os-release ]; then
+    # shellcheck source=/dev/null
     . /etc/os-release
     kv "OS" "${PRETTY_NAME:-unknown}"
 fi

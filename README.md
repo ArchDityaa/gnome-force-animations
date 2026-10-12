@@ -1,5 +1,7 @@
 # gnome-force-animations
 
+[![CI](https://github.com/ArchDityaa/gnome-force-animations/actions/workflows/ci.yml/badge.svg)](https://github.com/ArchDityaa/gnome-force-animations/actions/workflows/ci.yml)
+
 Bring back **GNOME Shell desktop animations** on machines where GNOME silently
 turns them off:
 
@@ -86,6 +88,30 @@ triggers**:
 * A logout/reboot to apply.
 
 ## Install
+
+### Quick install (from the release zip)
+
+No clone needed — grab the prebuilt extension and install it with
+`gnome-extensions`:
+
+```bash
+# download the latest release asset
+curl -LO https://github.com/ArchDityaa/gnome-force-animations/releases/latest/download/gnome-force-animations.zip
+
+gnome-extensions install --force gnome-force-animations.zip
+gnome-extensions enable force-animations@local
+```
+
+Then **log out and back in** (or reboot). See [Verify](#verify).
+
+The zip bundles only the extension, which already fixes **both** causes above —
+the systemd drop-in is optional belt-and-suspenders.
+
+* On GNOME 40–44 use
+  [`gnome-force-animations-legacy.zip`](https://github.com/ArchDityaa/gnome-force-animations/releases/latest/download/gnome-force-animations-legacy.zip)
+  instead.
+
+### From source (recommended)
 
 ```bash
 git clone https://github.com/ArchDityaa/gnome-force-animations.git
@@ -188,6 +214,17 @@ itu, sesi **GNOME Remote Desktop (RDP)** juga meminta animasi dimatikan, dan
 permintaan itu **didahulukan** di atas opsi `--force-animations`.
 
 **Solusi cepat:**
+
+Cara termudah — unduh zip rilis lalu pasang (tanpa clone):
+
+```bash
+curl -LO https://github.com/ArchDityaa/gnome-force-animations/releases/latest/download/gnome-force-animations.zip
+gnome-extensions install --force gnome-force-animations.zip
+gnome-extensions enable force-animations@local
+# lalu log out & login lagi, atau reboot
+```
+
+Atau dari sumber:
 
 ```bash
 git clone https://github.com/ArchDityaa/gnome-force-animations.git
