@@ -1,0 +1,8 @@
+{
+  "uuid": "force-animations@local",
+  "name": "Force Animations",
+  "description": "Keeps GNOME Shell desktop animations enabled when hardware acceleration is unavailable (llvmpipe / software rendering) and when a remote desktop session (GNOME Remote Desktop, RDP/VNC) asks the shell to disable them.",
+  "shell-version": ["45", "46", "47", "48"],
+  "url": "https://github.com/ArchDityaa/gnome-force-animations",
+  "version": 1
+}

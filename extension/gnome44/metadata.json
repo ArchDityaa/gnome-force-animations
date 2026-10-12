@@ -1,0 +1,8 @@
+{
+  "uuid": "force-animations@local",
+  "name": "Force Animations (legacy)",
+  "description": "Legacy (GNOME 40-44) variant. Keeps GNOME Shell desktop animations enabled under software rendering (llvmpipe) and remote desktop (RDP/VNC) sessions.",
+  "shell-version": ["40", "41", "42", "43", "44"],
+  "url": "https://github.com/ArchDityaa/gnome-force-animations",
+  "version": 1
+}
